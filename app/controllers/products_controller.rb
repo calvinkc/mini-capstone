@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
     render "new.html.erb"
   end
 
-
   def create
     @new_item = Product.create(
       brand: params[:brand], 
@@ -24,6 +23,10 @@ class ProductsController < ApplicationController
       description: params[:description]
       )
     render "create.html.erb"
+  end
+
+  def edit
+    render "edit.html.erb"
   end
    
 end
