@@ -1,25 +1,71 @@
-<h1>Hello </h1>
+<h1>New Entry</h1>
+<h1>Creation Page</h1>
+<br>
 
-
-<h1>NEW forms page</h1> 
 <%= form_tag "/products", method: :post do %>
-
-  <div>
-    Brand <input type="text" name="brand">
+<div class="bootstrap-iso">
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-6 col-sm-6 col-xs-12">
+    <form method="post">
+     <div class="form-group ">
+      <label class="control-label requiredField" for="brand">
+       Brand Name
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="brand" name="brand" placeholder="Brand Name" type="text"/>
+      <span class="help-block" id="hint_brand">
+       Enter the brand name of the item.
+      </span>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="category">
+       Category
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="category" name="category" placeholder="Category" type="text"/>
+      <span class="help-block" id="hint_category">
+       Enter the category of the item: food, clothing, shoes, etc.
+      </span>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="price">
+       Price
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="price" name="price" placeholder="$3.99" type="text"/>
+      <span class="help-block" id="hint_price">
+       Enter the price of the item
+      </span>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="description">
+       Description
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <textarea class="form-control" cols="40" id="description" name="description" placeholder="Item Description " rows="10"></textarea>
+      <span class="help-block" id="hint_description">
+       Please enter item description: color, size, etc.
+      </span>
+     </div>
+     <div class="form-group">
+      <div>
+       <button class="btn btn-primary " name="submit" type="submit">
+        Create Item
+       </button>
+      </div>
+     </div>
+    </form>
+   </div>
   </div>
-
-  <div>
-    Category <input type="text" name="category">
-  </div>
-
-   <div>
-    Price <input type="integer" name="price">
-  </div>
-
-   <div>
-    Description <input type="text" name="description">
-  </div>
-
-  <input type="submit" value="Create Item">
-<% end %>
-
+ </div>
+</div>
+<% end %> 
