@@ -6,8 +6,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-      recipe_id = params[:id]
-      @item = Product.find_by(id: recipe_id)
+      product_id = params[:id]
+      @item = Product.find_by(id: product_id)
     render "show.html.erb" #Individual Item
   end
 

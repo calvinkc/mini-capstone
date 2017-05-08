@@ -1,8 +1,22 @@
-<h1>Hello </h1>
+<h1>View Entry </h1>
+<h1>Item Details Page</h1>
+<br>
+<br>
+<h4>Item ID: <%= @item.id %></h4>
+<h4>Brand : <%= @item.brand %></h4>
+<h4>Catgeory : <%= @item.category %></h4>
+<h4>Price : <%= @item.price %></h4>
+<h4>Description : <%= @item.description %></h4>
+
+<h2><a href="/" style="margin-right:20px">Back to Index</a> 
+    <a href="/products/new" style="margin-right:20px">Create Another Item</a>
+    <a href="/products/<%= @item.id %>/edit">Edit this Item</a>
+</h2>
+<br>
+<br>
+
 
 <!-- 
-Items available to you are...
- <button type="button" class="btn btn-primary">Primary</button> -->
 
 <h1>SHOW Page</h1> 
 <h2></h2>
@@ -13,3 +27,4 @@ Items available to you are...
 <h2><%= @item.category %></h2>
 <h2><%= @item.price.to_s %></h2>
 <h2><%= @item.description %></h2>
+ -->

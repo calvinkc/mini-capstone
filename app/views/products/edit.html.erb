@@ -16,7 +16,7 @@
         *
        </span>
       </label>
-      <input class="form-control" id="brand" name="brand" value="<%= @item.brand %>" type="text"/>
+      <input class="form-control" id="brand" name="brand" value="<%= @item.brand %>" required type="text"/>
       <span class="help-block" id="hint_brand">
        Enter the brand name of the item.
       </span>
@@ -28,7 +28,7 @@
         *
        </span>
       </label>
-      <input class="form-control" id="category" name="category" value="<%= @item.category %>" type="text"/>
+      <input class="form-control" id="category" name="category" value="<%= @item.category %>" required type="text"/>
       <span class="help-block" id="hint_category">
        Enter the category of the item: food, clothing, shoes, etc.
       </span>
@@ -40,7 +40,7 @@
         *
        </span>
       </label>
-      <input class="form-control" id="price" name="price" value="<%= @item.price %>" type="text"/>
+      <input class="form-control" id="price" name="price" value="<%= @item.price %>" required type="text"/>
       <span class="help-block" id="hint_price">
        Enter the price of the item
       </span>
@@ -52,7 +52,7 @@
         *
        </span>
       </label>
-      <textarea class="form-control" cols="40" id="description" name="description" value="<%= @item.description %>" rows="10"></textarea>
+      <textarea class="form-control" cols="40" id="description" name="description" required rows="10"> <%= @item.description %>" </textarea>
       <span class="help-block" id="hint_description">
        Please enter item description: color, size, etc.
       </span>
