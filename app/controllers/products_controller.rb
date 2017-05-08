@@ -26,7 +26,19 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @item = Product.find(params[:id]) #single hash
     render "edit.html.erb"
+  end
+
+  def update
+      @item = Product.find(params[:id])
+      @item.update(
+        brand: params[:brand], 
+        category: params[:category],
+        price: params[:price],
+        description: params[:description]
+        )
+      render "update.html.erb"
   end
    
 end
