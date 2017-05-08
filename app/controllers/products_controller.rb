@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     @items = Product.all
+    @database = Product.count 
     render "index.html.erb" #All Item
   end
 
