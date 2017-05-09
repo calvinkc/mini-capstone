@@ -41,5 +41,11 @@ class ProductsController < ApplicationController
         )
       render "update.html.erb"
   end
+
+  def destroy
+    item = Product.find(params[:id]) #single hash
+    item.destroy
+    render "destroy.html.erb"
+  end
    
 end

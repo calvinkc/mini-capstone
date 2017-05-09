@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> PickUpNow </title>
-    <%= csrf_meta_tags %>
 
+  <head>
+    <title> BestStuff </title>
+    <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<!-- <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-3">Cal-Store: Best Deals</h1>
-    <p class="lead">The tasteful collection of products, handpicked by Calvin.</p>
-  </div>
-</div> -->
-
   <body>
-  <nav class="navbar navbar-default">
+
+  <nav class= "navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">My Store!!</a>
@@ -27,14 +21,14 @@
     </ul>
   </div>
   </nav>
-
+    <br>
+    <br>
+    <br>
     <h5><a href="#BOTTOM">Jump to Bottom</a></h5>
     <a name="TOP"></a>
-
     <%= yield %>
-
     <div id="BOTTOM"></div>
     <h5><a href="#TOP">Back to Top</a></h5>
-
   </body>
+
 </html>
