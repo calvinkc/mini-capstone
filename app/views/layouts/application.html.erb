@@ -8,8 +8,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-
+  <body> 
+  <!-- Static Nav Bar Begins -->
   <nav class= "navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -21,17 +21,17 @@
     </ul>
   </div>
   </nav>
-
+  <!-- Static Nav Bar Ends -->
     <br>
     <br>
     <br>
-
+  <!-- Alert Begins -->
     <% flash.each do |key, message| %>
     <div class="alert alert-<%= key %> alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <%= message %>
     </div>
     <% end %>
-
+  <!-- Alert Ends -->
     <h5><a href="#BOTTOM">Jump to Bottom</a></h5>
     <a name="TOP"></a>
 
