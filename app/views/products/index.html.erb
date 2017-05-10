@@ -3,17 +3,19 @@
 <br>
 <br>
 
-<div class="row">
-  <% @items.each do |item|  %>
-    <div class="col-md-4">
-      <div class="well">
-          <h4>Item ID: <%= item.id %></h4>
-          <h4> <a href="/products/<%=item.id%>"> Brand: <%= item.brand %> </a> </h4>
-          <h4> <img src="<%= item.image %>"></h4>
-          <h4> Food: <%= item.category %></h4>
-          <h4> Price: <%= item.price.to_s %></h4>
-          <h4> Description: <%= item.description %></h4>
+<% @items.each_slice(3) do |three_items| %>
+  <div class="row">
+    <% three_items.each do |item|  %>
+      <div class="col-md-4">
+        <div class="well">
+            <h4>Item ID: <%= item.id %></h4>
+            <h4> <a href="/products/<%=item.id%>"> Brand: <%= item.brand %> </a> </h4>
+            <h4> <img src="<%= item.image %>"></h4>
+            <h4> Food: <%= item.category %></h4>
+            <h4> Price: <%= item.price.to_s %></h4>
+            <h4> Description: <%= item.description %></h4>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
