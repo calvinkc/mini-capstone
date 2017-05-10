@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   def show
       product_id = params[:id]
       @item = Product.find_by(id: product_id)
-    render "show.html.erb" #Individual Item
+      render "show.html.erb" #Individual Item
   end
 
   def new
@@ -17,13 +17,14 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @new_item = Product.create(
+    new_item = Product.create(
       brand: params[:brand], 
       category: params[:category],
       price: params[:price],
       description: params[:description]
       )
-    render "create.html.erb" #Create Success
+      redirect_to "/products/#{new_item.id}"
+    # render "create.html.erb" #Create Success
   end
 
   def edit
@@ -32,14 +33,15 @@ class ProductsController < ApplicationController
   end
 
   def update
-      @item = Product.find(params[:id])
-      @item.update(
+      item = Product.find(params[:id])
+      item.update(
         brand: params[:brand], 
         category: params[:category],
         price: params[:price],
         description: params[:description]
         )
-      render "update.html.erb"
+      redirect_to "/products/#{item.id}"
+      #render "update.html.erb"
   end
 
   def destroy
