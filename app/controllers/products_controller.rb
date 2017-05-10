@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
       price: params[:price],
       description: params[:description]
       )
+      flash[:success] = "Product Created!"
       redirect_to "/products/#{new_item.id}"
     # render "create.html.erb" #Create Success
   end
@@ -40,6 +41,7 @@ class ProductsController < ApplicationController
         price: params[:price],
         description: params[:description]
         )
+      flash[:success] = "Product Updated!"
       redirect_to "/products/#{item.id}"
       #render "update.html.erb"
   end
@@ -47,7 +49,9 @@ class ProductsController < ApplicationController
   def destroy
     item = Product.find(params[:id]) #single hash
     item.destroy
-    render "destroy.html.erb"
+    flash[:success] = "Product Deleted!"
+    redirect_to "/"
+    #render "destroy.html.erb"
   end
    
 end

@@ -21,14 +21,22 @@
     </ul>
   </div>
   </nav>
+
     <br>
     <br>
     <br>
+
+    <% flash.each do |name, message| %>
+    <h2> <%= message %> </h2>
+    <% end %>
+
     <h5><a href="#BOTTOM">Jump to Bottom</a></h5>
     <a name="TOP"></a>
     <%= yield %>
     <div id="BOTTOM"></div>
     <h5><a href="#TOP">Back to Top</a></h5>
+
+
   </body>
 
 </html>
