@@ -9,5 +9,5 @@
 Product.destroy_all #Dangerrousssssss
 
 50.times do 
-  Product.create({brand: Faker::Name.name, category: Faker::Food.ingredient, price: Faker::Address.building_number, description: Faker::Lorem.sentence, image: Faker::Avatar.image("my-own-slug", "300x300", "jpg")})
+  Product.create({brand: Faker::Name.name, category: Faker::Food.ingredient, price: Faker::Address.building_number, description: Faker::Lorem.sentence, image: Faker::Avatar.image})
 end
