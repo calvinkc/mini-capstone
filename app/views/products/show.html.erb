@@ -8,6 +8,9 @@
 <h4>Catgeory : <%= @item.category %></h4>
 <h4>Price : <%= @item.price %></h4>
 <h4>Description : <%= @item.description %></h4>
+<h4><%= @item.sale_message %></h4>
+<h4><%= @item.tax %></h4>
+<h4><%= @item.total %></h4>
 
 
 <%= button_to "Delete", {action: "destroy", id: @item.id}, :method => :delete %>
