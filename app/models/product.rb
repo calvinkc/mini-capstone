@@ -11,15 +11,14 @@ class Product < ApplicationRecord
 
   def tax
     #• Create a model method called tax which will return the tax that would be charged for a particular product. (Assume a 9% tax rate.)
-    tax = (price * 0.09).to_d
-    "Tax: #{tax}"
+    (price * 0.09).to_d
   end
 
   def total
    # • Create a model method called total which will return the sum of the price + tax.
-    total = ((price * 0.09).to_d) + price
-    "Total: #{total}"
+    tax + price
+ 
   end
 
-  
+
 end
