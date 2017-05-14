@@ -75,5 +75,11 @@ class ProductsController < ApplicationController
     redirect_to "/"
     #render "destroy.html.erb"
   end
+
+  def search
+    search_term = params[:search]
+    @item = Product.where("brand LIKE ? OR category LIKE ? OR description LIKE ?", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%")
+    render "index.html.erb"
+  end
    
 end
