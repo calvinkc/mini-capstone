@@ -3,6 +3,25 @@ class ProductsController < ApplicationController
   def index
     @items = Product.all
     @database = Product.count 
+
+    # Providing Sort Ability here
+    sort_attribute = params[:sort]
+    sort_order = params[:sort_order]
+    if sort_attribute
+      @items = Product.all.order(sort_attribute)
+      if sort_order
+      @items = Product.all.order(sort_attribute => sort_order)
+      end
+    end
+    # End Sort Here
+
+    # Begin Discounted Items
+    sort_discount = params[:discount]
+    if sort_discount == "yes"
+      @items = Product.where("price < ?", 1000)
+    end
+    # end discount items
+
     render "index.html.erb" #All Item
   end
 

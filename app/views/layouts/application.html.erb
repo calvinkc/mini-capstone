@@ -18,7 +18,30 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href="/products">Index</a></li>
       <li><a href="/products/new">New Entry</a></li>
+      <li><a href="/?discount=yes">Discounted Items</a></li>
     </ul>
+    <ul class="nav navbar-nav navbar-right">
+<!--       <li><a href="#">Link</a></li> -->
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By Ascending<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/?sort=brand">Brand</a></li>
+          <li><a href="/?sort=category">Category</a></li>
+          <li><a href="/?sort=price">Price</a></li>
+<!--           <li role="separator" class="divider"></li>
+          <li><a href="#">Separated link</a></li> -->
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By Descending<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/?sort=brand&sort_order=desc">Brand</a></li>
+          <li><a href="/?sort=category&sort_order=desc">Category</a></li>
+          <li><a href="/?sort=price&sort_order=desc">Price</a></li>
+<!--           <li role="separator" class="divider"></li>
+          <li><a href="#">Separated link</a></li> -->
+        </ul>
+      </li>
   </div>
   </nav>
   <!-- Static Nav Bar Ends -->
