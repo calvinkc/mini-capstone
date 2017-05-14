@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
 
     # Begin Discounted Items
     sort_discount = params[:discount]
-    if sort_discount == "yes"
+    if sort_discount
       @items = Product.where("price < ?", 1000)
     end
     # end discount items
@@ -26,8 +26,11 @@ class ProductsController < ApplicationController
   end
 
   def show
-      product_id = params[:id]
-      @item = Product.find_by(id: product_id)
+    @item = Product.find_by(id: params[:id])
+    if params[:id] == "random"
+      product = Product.all
+      @item = product.sample
+    end
       render "show.html.erb" #Individual Item
   end
 
