@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-Product.destroy_all #Dangerrousssssss
+# Product.destroy_all #Dangerrousssssss
 
 50.times do 
   Product.create(
@@ -14,5 +14,14 @@ Product.destroy_all #Dangerrousssssss
      category: Faker::Food.ingredient,
      price: Faker::Address.building_number,
      description: Faker::Lorem.sentence,
-     image: Faker::Avatar.image})
+     image: Faker::Avatar.image}
+     )
+end
+
+10.times do
+  Supplier.create(
+  {name: Faker::Name.name,
+   email: Faker::Internet.email,
+   phone: Faker::PhoneNumber.cell_phone}
+  )
 end
