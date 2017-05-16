@@ -1,7 +1,5 @@
 class ProductsController < ApplicationController
 
-  belongs_to :supplier
-
   def index
     @items = Product.all
     @database = Product.count 

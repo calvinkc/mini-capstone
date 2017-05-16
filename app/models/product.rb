@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
 
+  belongs_to :supplier
+
   def sale_message
     # • Create a model method called sale_message that does as follows: If an item is under $2, it returns the string “Discount Item!” - otherwise, it should return the string “Everyday Value!!” Then, have this message appear on the product’s show page.
     if price < 2
