@@ -15,7 +15,6 @@ Product.destroy_all #Dangerrousssssss
      price: Faker::Address.building_number,
      description: Faker::Lorem.sentence,
      supplier_id: rand(1..5)
-#     image: Faker::Avatar.image} This was taken out.... 
      })
 end
 
