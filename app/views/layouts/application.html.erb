@@ -17,9 +17,12 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="/products">Index</a></li>
-      <li><a href="/signup">Sign up!</a></li>
-      <li><a href="/login">Login! </a></li>
-      <li><a href="/logout">Logout! </a></li>
+      <% if current_user %><     
+      <li><a href="/logout">Logout! </a></li> 
+      <% else %>
+      <li><a href="/signup">Sign up!</a></li> 
+      <li><a href="/login">Login! </a></li> 
+      <% end %>
       <li><a href="/products/new">New Entry</a></li>
       <li><a href="/?discount=yes">Discounted Items</a></li>
       <li><a href="/products/random">Random Item</a></li>
