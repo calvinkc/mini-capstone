@@ -43,6 +43,7 @@ class ProductsController < ApplicationController
       brand: params[:brand], 
       category: params[:category],
       price: params[:price],
+      supplier: 1,
       description: params[:description]
       )
       flash[:success] = "Product Created!"
