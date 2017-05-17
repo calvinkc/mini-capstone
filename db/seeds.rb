@@ -6,22 +6,33 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-# Product.destroy_all #Dangerrousssssss
+Product.destroy_all #Dangerrousssssss
 
-50.times do 
+10.times do 
   Product.create(
     {brand: Faker::Name.name,
      category: Faker::Food.ingredient,
      price: Faker::Address.building_number,
      description: Faker::Lorem.sentence,
-     image: Faker::Avatar.image}
-     )
+     supplier_id: rand(1..5)
+#     image: Faker::Avatar.image} This was taken out.... 
+     })
 end
 
-10.times do
+5.times do
   Supplier.create(
   {name: Faker::Name.name,
    email: Faker::Internet.email,
    phone: Faker::PhoneNumber.cell_phone}
   )
 end
+
+50.times do
+  Image.create(
+  {url: Faker::Avatar.image,
+   product_id: rand(1..10)
+   })
+end
+
+
+

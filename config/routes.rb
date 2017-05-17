@@ -7,4 +7,8 @@ post "/products" => "products#create"
 get "/products/:id/edit" => "products#edit"
 patch "/products/:id" => "products#update"
 delete "/products/:id" => "products#destroy"
+
+# get "/products/:id/images/new" => "images#new"
+# post "/products/:id/images" => "imagescreate"
+
 end

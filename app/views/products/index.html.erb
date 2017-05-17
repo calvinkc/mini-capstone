@@ -10,7 +10,9 @@
         <div class="well">
             <h4>Item ID: <%= item.id %></h4>
             <h4> <a href="/products/<%=item.id%>"> Brand: <%= item.brand %> </a> </h4>
-            <h4> <img src="<%= item.image %>"></h4>
+            <% if item.images %>
+            <h4> <img src="<%= item.images[0].url %>"></h4>
+            <% end %>
             <h4> Food: <%= item.category %></h4>
             <h4> Price: <%= item.price.to_s %></h4>
             <h4> Description: <%= item.description %></h4>
