@@ -4,31 +4,32 @@ class OrdersController < ApplicationController
   #   render "/products#"
   # end
 
-  def create
-    @product = 
-    @price = params[:subtotal].to_f * params[:quantity].to_i
-    @tax = @price 
-    @grandtotal = @price + @tax
+  def show
+    @order = Order.find_by(id: params[:id]) 
+  end
 
+  def create
+    product_id = params[:product_id]
+    quantity = params[:quantity]
+    product = Product.find_by(id: product_id)
+    calculated_subtotal = product.price.to_i * quantity
+    calculated_tax = calculated_subtotal * 0.09
+    calculated_total = calculated_subtotal + calculated_tax
 
     order = Order.create(
       quantity: params[:quantity],
       user_id: current_user.id,
       product_id: params[:product_id],
-      subtotal: @price,
-      tax: @tax,
-      total: grandtotal
+      subtotal: @calculated_subtotal,
+      tax: calculated_tax,
+      total: calculated_total
       )
     flash[:success] = "Order successfully created!"
-    render "create.html.erb"
+    redirect "/orders/#{order.id}"
   end
+
+# NEED TO DO SHOW. AND SHOW PAGE.
 
 end
 
 
-#     t.integer  "user_id"
-#     t.integer  "product_id"
-#     t.integer  "quantity"
-#     t.float    "subtotal"
-#     t.float    "tax"
-#     t.float    "total"
