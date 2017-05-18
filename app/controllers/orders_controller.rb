@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     product_id = params[:product_id]
     quantity = params[:quantity]
     product = Product.find_by(id: product_id)
-    calculated_subtotal = product.price.to_i * quantity
+    calculated_subtotal = product.price.to_i * quantity.to_i
     calculated_tax = calculated_subtotal * 0.09
     calculated_total = calculated_subtotal + calculated_tax
 
@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
       total: calculated_total
       )
     flash[:success] = "Order successfully created!"
-    redirect "/orders/#{order.id}"
+    redirect_to "/orders/#{order.id}"
   end
 
 # NEED TO DO SHOW. AND SHOW PAGE.

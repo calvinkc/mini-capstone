@@ -19,5 +19,6 @@ post "/login" => "sessions#create"
 get "/logout" => "sessions#destroy"
 
 post "/orders" => "orders#create"
+get "/orders/:id" => "orders#show"
 
 end
