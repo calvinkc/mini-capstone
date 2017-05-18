@@ -24,3 +24,18 @@
 </h2>
 <br>
 <br>
+
+
+<!-- New Order Form -->
+<%= form_tag "/orders", method: :post do %>
+  <div>
+    Quantity: <input type="integer" name="quantity">
+  </div>
+  <div>
+   <input type="integer" class="hidden" name="product_id" value="<%= @item.id %>">
+  <input type="integer" class="hidden" name="subtotal" value="<%= @item.price %>">
+   <input type="integer" class="hidden" name="tax" value="<%= @item.tax %>">
+   <input type="integer" class="hidden" name="total" value="<%= @item.total %>">
+  </div>
+  <input type="submit" value="Checkout">
+<% end %>
