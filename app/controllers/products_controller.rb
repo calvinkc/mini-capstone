@@ -4,6 +4,13 @@ class ProductsController < ApplicationController
     @items = Product.all
     @database = Product.count 
 
+    # Session Counting only 
+    if session[:count] == nil
+      session[:count] = 0
+    end
+    session[:count] += 1
+    @visits = session[:count]
+
     # Providing Sort Ability here
     sort_attribute = params[:sort]
     sort_order = params[:sort_order]
