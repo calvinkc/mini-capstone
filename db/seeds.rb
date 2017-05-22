@@ -6,12 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-Product.destroy_all #Dangerrousssssss
+Product.destroy_all 
 
 10.times do 
   Product.create(
     {brand: Faker::Name.name,
-     category: Faker::Food.ingredient,
      price: Faker::Address.building_number,
      description: Faker::Lorem.sentence,
      supplier_id: rand(1..5)
