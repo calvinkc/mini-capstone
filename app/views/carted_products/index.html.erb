@@ -1,0 +1,32 @@
+<!-- After a user adds a product to their shopping cart, we want to redirect them to a checkout page, where they can see all the carted_products a user has put in their shopping cart. This will require a brand new route/action/view - and it will be the index action of the carted_products_controller. Why is that? Because it is the page of all of the carted_products (of this user). Note that this page should only show carted_products of the current user’s open order -->
+
+<h1> Checkout </h1>
+<br>
+<br>
+
+<% @cart = CartedProduct.where(order_id: current_user.id) %>
+
+<% @cart.each_slice(3) do |three_items| %>
+  <div class="row">
+    <% three_items.each do |item|  %>
+      <div class="col-md-4">
+        <div class="well">
+            <h4>Item ID: <%= item.product.id %></h4>
+            <h4> <a href="/products/<%=item.id%>"> Brand: <%= item.product.brand %> x <%=item.quantity%></a> </h4>
+            <% if item.product.images %>
+            <h4> <img src="<%= item.product.images.first.url %>"></h4>
+            <% end %>
+            <h4> Price: <%= item.product.price.to_s %></h4>
+            <h4> Description: <%= item.product.description %></h4>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<div>
+  <%= form_tag "/complete", method: :patch do %>
+  <input type="integer" class="hidden" name="order_id" value="<%= current_user.id %>">
+  <input type="submit" value="Complete my Order">
+<% end %>
+</div>
