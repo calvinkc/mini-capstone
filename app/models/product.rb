@@ -4,6 +4,10 @@ class Product < ApplicationRecord
   has_many :orders
   has_many :categories
   has_many :category_products
+  # New Association Starts
+  has_many :orders
+  has_many :orders, through: :carted_products
+  # End New Associations Here
 
   def sale_message
     # • Create a model method called sale_message that does as follows: If an item is under $2, it returns the string “Discount Item!” - otherwise, it should return the string “Everyday Value!!” Then, have this message appear on the product’s show page.
