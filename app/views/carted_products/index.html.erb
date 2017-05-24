@@ -4,7 +4,7 @@
 <br>
 <br>
 
-<% @cart = CartedProduct.where(order_id: current_user.id) %>
+<% @cart = CartedProduct.where(order_id: current_user) %>
 
 <% @cart.each_slice(3) do |three_items| %>
   <div class="row">

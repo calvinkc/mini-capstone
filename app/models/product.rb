@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   has_many :categories
   has_many :category_products
   # New Association Starts
-  has_many :orders
+  has_many :carted_products
   has_many :orders, through: :carted_products
   # End New Associations Here
 

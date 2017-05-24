@@ -21,7 +21,7 @@ get "/logout" => "sessions#destroy"
 post "/orders" => "orders#create"
 get "/orders/:id" => "orders#show"
 
-post "/cart" => "carted_products#create"
+post "/carted_products" => "carted_products#create"
 get "/checkout" => "carted_products#index"
-patch "/complete" => "carted_products#update"
+patch "/complete" => "orders#update"
 end
