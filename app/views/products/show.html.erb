@@ -14,18 +14,19 @@
 <% @item.images.each do |image| %>
 <img src="<%= image.url %>" alt="<%= @item.brand %>" class="img-responsive">
 <% end %>
-
+<% if current_user && current_user.admin %>
 <%= button_to "Delete", {action: "destroy", id: @item.id}, :method => :delete %>
-
 <h2><a href="/" style="margin-right:20px">Back to Index</a> 
     <a href="/products/new" style="margin-right:20px">Create Another Item</a>
     <a href="/products/<%= @item.id %>/edit">Edit this Item</a>
 </h2>
+<% end %>
 <br>
 <br>
 
 
 <!-- New Order Form -->
+<% if current_user %>
 <%= form_tag "/carted_products", method: :post do %>
   <div>
     Quantity: <input type="integer" name="quantity">
@@ -37,4 +38,5 @@
    <input type="integer" class="hidden" name="total" value="<%= @item.total %>">
   </div>
   <input type="submit" value="Checkout">
+<% end %>
 <% end %>

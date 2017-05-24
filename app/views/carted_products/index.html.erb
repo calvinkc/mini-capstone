@@ -6,6 +6,8 @@
 
 <% @cart = CartedProduct.where(order_id: current_user) %>
 
+<!-- NERDSTORE HAS A BETTER WAY TO DO THIS PART!!!! order.carted_products  -->
+
 <% @cart.each_slice(3) do |three_items| %>
   <div class="row">
     <% three_items.each do |item|  %>

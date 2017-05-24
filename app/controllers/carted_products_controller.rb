@@ -1,5 +1,10 @@
 class CartedProductsController < ApplicationController
+
+  before_action :authenticate_user! 
+
   def index
+    @carted_products = CartedProduct.all # Returns array of all carted products
+    # Check nerdstore for a better of doing this!!
     render "index.html.erb" #All Item
   end
 
@@ -25,7 +30,7 @@ class CartedProductsController < ApplicationController
       )
     end
     flash[:success] = "Item successfully added!"
-    redirect_to "/checkout"
+    redirect_to "/carted_products"
   end
 
 end

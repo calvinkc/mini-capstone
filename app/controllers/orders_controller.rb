@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  before_action :authenticate_user!
+  
   # def new
   #   render "/products#"
   # end
@@ -46,32 +48,9 @@ class OrdersController < ApplicationController
      completed: true
      )
 
-     # item = Product.find(params[:id])
-     # item.update(
-     #   brand: params[:brand], 
-     #   category: params[:category],
-     #   price: params[:price],
-     #   description: params[:description]
-     #   )
-
      flash[:info] = "Product Updated!"
      redirect_to "/orders/#{order_id}"
-     #render "update.html.erb"
 
-   # @order = Order.find_by(order_id) 
-   #   @order = Order.update(
-   #   user_id: current_user.id,
-   #   product_id: params[:product_id],
-   #   subtotal: calculated_subtotal,
-   #   tax: calculated_tax,
-   #   total: calculated_total,
-   #   completed: false
-   #   )
-   #   CartedProduct.create(
-   #   product_id: params[:product_id],
-   #   quantity: params[:quantity],
-   #   order_id: @order.id
-   #   )
   end 
 end
 

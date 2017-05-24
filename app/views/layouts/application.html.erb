@@ -23,10 +23,14 @@
       <li><a href="/signup">Sign up!</a></li> 
       <li><a href="/login">Login! </a></li> 
       <% end %>
+      <% if current_user && current_user.admin %>
       <li><a href="/products/new">New Entry</a></li>
+      <% end %>
       <li><a href="/?discount=yes">Discounted Items</a></li>
       <li><a href="/products/random">Random Item</a></li>
+      <% if current_user %>
       <li><a href="/checkout">Check Out</a></li>
+      <% end %>
     </ul>
     <ul class="nav navbar-nav navbar-right">
 <!--       <li><a href="#">Link</a></li> -->

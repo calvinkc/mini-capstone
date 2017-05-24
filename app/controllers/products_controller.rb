@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  before_action :authenticate_admin!, except: [:index, :show, :search]
+
   def index
     @items = Product.all
     @database = Product.count 
@@ -42,11 +44,11 @@ class ProductsController < ApplicationController
   end
 
   def new
-    render "new.html.erb" #New Form
+    
   end
 
   def create
-    new_item = Product.create(
+      new_item = Product.create(
       brand: params[:brand], 
       category: params[:category],
       price: params[:price],
