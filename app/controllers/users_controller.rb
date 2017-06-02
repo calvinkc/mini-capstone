@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create 
-    user = User.create(
+    user = User.new(
       name: params[:name],
       email: params[:email],
       password: params[:password]
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       flash[:success] = "Successfully created account!"
       redirect_to "/"
     else 
-      flash[:warning] = "Invalid entry!"
+      flash[:warning] = "Invalid email/pass!"
       redirect_to "/signup"
     end
   end
