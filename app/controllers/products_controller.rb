@@ -31,28 +31,29 @@ class ProductsController < ApplicationController
     end
     # end discount items
 
+    if params[:category]
+      @products = Category.find_by(title: params[:category]).products
+    end
     render "index.html.erb" #All Item
   end
 
   def show
     @item = Product.find_by(id: params[:id])
     if params[:id] == "random"
-      product = Product.all
-      @item = product.sample
+      @item = Product.all.sample
     end
       render "show.html.erb" #Individual Item
   end
 
   def new
-    
+ 
   end
 
   def create
-      @new_item = Product.create(
+      @new_item = Product.new(
       brand: params[:brand], 
-      # category: params[:category],
       price: params[:price],
-      # supplier: 1,
+      supplier: params[:supplier]["supplier_id"],
       description: params[:description]
       )
     if @new_item.save 
@@ -64,29 +65,28 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @item = Product.find(params[:id]) #single hash
+    @item = Product.find_by(id: params[:id]) 
     render "edit.html.erb"
   end
 
   def update
-      item = Product.find(params[:id])
-      item.update(
+      @item = Product.find_by(id: params[:id])
+      @item.update(
         brand: params[:brand], 
         category: params[:category],
         price: params[:price],
         description: params[:description]
         )
       flash[:info] = "Product Updated!"
-      redirect_to "/products/#{item.id}"
+      redirect_to "/products/#{@item.id}"
       #render "update.html.erb"
   end
 
   def destroy
-    item = Product.find(params[:id]) #single hash
+    item = Product.find_by(id: params[:id])
     item.destroy
     flash[:danger] = "Product Deleted!"
     redirect_to "/"
-    #render "destroy.html.erb"
   end
 
   def search
