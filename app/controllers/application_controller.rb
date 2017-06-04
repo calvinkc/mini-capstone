@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authenticate_user!
-    flash[:warning] = "You need to log in!"
+#flash[:warning] = "You need to log in!"
     redirect_to '/login' unless current_user
   end
 

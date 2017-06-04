@@ -20,8 +20,13 @@ get "/logout" => "sessions#destroy"
 
 post "/orders" => "orders#create"
 get "/orders/:id" => "orders#show"
+patch "/orders/:id" => "orders#update"
 
 post "/carted_products" => "carted_products#create"
 get "/carted_products" => "carted_products#index"
-patch "/complete" => "orders#update"
+
+get '/carted_products' => 'carted_products#index'
+post '/carted_products' => 'carted_products#create'
+delete '/carted_products/:id' => 'carted_products#destroy'
+
 end

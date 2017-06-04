@@ -16,7 +16,9 @@
 <% end %>
 <% if current_user && current_user.admin %>
 <%= button_to "Delete", {action: "destroy", id: @item.id}, :method => :delete %>
-<h2><a href="/" style="margin-right:20px">Back to Index</a> 
+<h2>
+<%= link_to "Add Image", "/products/#{@item.id}/images/new", class: "btn btn-primary" %>
+<a href="/" style="margin-right:20px">Back to Index</a> 
     <a href="/products/new" style="margin-right:20px">Create Another Item</a>
     <a href="/products/<%= @item.id %>/edit">Edit this Item</a>
 </h2>

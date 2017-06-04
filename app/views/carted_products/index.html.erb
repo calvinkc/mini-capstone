@@ -4,22 +4,16 @@
 <br>
 <br>
 
-<% @cart = CartedProduct.where(order_id: current_user) %>
-
 <!-- NERDSTORE HAS A BETTER WAY TO DO THIS PART!!!! order.carted_products  -->
 
-<% @cart.each_slice(3) do |three_items| %>
+<% @carted_products.each_slice(3) do |three_items| %>
   <div class="row">
     <% three_items.each do |item|  %>
       <div class="col-md-4">
         <div class="well">
-            <h4>Item ID: <%= item.product.id %></h4>
-            <h4> <a href="/products/<%=item.id%>"> Brand: <%= item.product.brand %> x <%=item.quantity%></a> </h4>
-            <% if item.product.images %>
-            <h4> <img src="<%= item.product.images.first.url %>"></h4>
-            <% end %>
-            <h4> Price: <%= item.product.price.to_s %></h4>
-            <h4> Description: <%= item.product.description %></h4>
+            <h4>Item: <%= item.product.brand %></h4>
+            <h4>Quantity: <%=item.quantity%></a> </h4>
+            <%= link_to "Remove", "/carted_products/#{item.id}", {method: :delete, class: "btn btn-danger" }%>
         </div>
       </div>
     <% end %>
@@ -27,7 +21,7 @@
 <% end %>
 
 <div>
-  <%= form_tag "/complete", method: :patch do %>
+  <%= form_tag "/orders/#{@order.id}", method: :patch do %>
   <input type="integer" class="hidden" name="order_id" value="<%= current_user.id %>">
   <input type="submit" value="Complete my Order">
 <% end %>

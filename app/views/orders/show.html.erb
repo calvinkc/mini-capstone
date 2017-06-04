@@ -4,3 +4,11 @@
 <h3>Order Subtotal: <%= @order.subtotal %></h3>
 <h3>Order Tax: <%= @order.tax %></h3>
 <h3>Order Total: <%= @order.total %></h3>
+<h3>Purchase Time: <%= @order.created_at.strftime("%A, %b %d") %></h3>
+
+<% @order.carted_products.each do |carted_product| %>
+  <div>
+    <p>Product: <%= carted_product.product.brand %></p>
+    <p>Quantity: <%= carted_product.quantity %></p>
+  </div>
+<% end %>

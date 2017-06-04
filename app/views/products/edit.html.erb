@@ -8,6 +8,8 @@
   <div class="row">
    <div class="col-md-6 col-sm-6 col-xs-12">
     <form method="patch">
+
+
      <div class="form-group">
       <label class="control-label requiredField" for="brand">
        Brand Name
@@ -20,21 +22,19 @@
        Enter the brand name of the item.
       </span>
      </div>
-     <div class="form-group ">
-      <label class="control-label requiredField" for="category">
 
-<!-- 
-       Category
+<!--      <div class="form-group ">
+      <label class="control-label requiredField" for="image">
+       Image
        <span class="asteriskField">
         *
        </span>
       </label>
-      <input class="form-control" id="category" name="category" value="<%= @item.category %>" required type="text"/>
-      <span class="help-block" id="hint_category">
-       Enter the category of the item: food, clothing, shoes, etc.
+      <input class="form-control" id="Image" name="image" value="<%= @item.images.first %>" required type="text"/>
+      <span class="help-block" id="hint_Image">
+       Enter the Image of the item: food, clothing, shoes, etc.
       </span>
-     </div>
- -->
+     </div> -->
      
      <div class="form-group ">
       <label class="control-label requiredField" for="price">
@@ -48,6 +48,8 @@
        Enter the price of the item
       </span>
      </div>
+
+
      <div class="form-group ">
       <label class="control-label requiredField" for="description">
        Description
@@ -55,11 +57,15 @@
         *
        </span>
       </label>
-      <textarea class="form-control" cols="40" id="description" name="description" required rows="10"><%= @item.description %>"</textarea>
+      <textarea class="form-control" cols="40" id="description" name="description" required rows="10"><%= @item.description %></textarea>
       <span class="help-block" id="hint_description">
        Please enter item description: color, size, etc.
       </span>
      </div>
+
+
+
+
      <div class="form-group">
       <div>
        <button class="btn btn-primary " name="submit" type="submit">

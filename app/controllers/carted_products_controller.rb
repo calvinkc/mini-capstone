@@ -32,12 +32,12 @@ class CartedProductsController < ApplicationController
     quantity: params[:quantity],
     order_id: order_id
     )
-    flash[:success] = "#{new_product.product.name} successfully added!"
+    flash[:success] = "#{new_product.product.brand} successfully added!"
     redirect_to "/carted_products"
   end
 
   def destroy
-    carted_products = CartedProduct.find_by(id: params[:id])
+    carted_product = CartedProduct.find_by(id: params[:id])
     carted_product.destroy
     redirect_to "/carted_products"
   end
